@@ -1,0 +1,6 @@
+{
+  "name": "ربيع القلوب",
+  "description": "تطبيق ربيع القلوب للقرآن الكريم ومواقيت الصلاة في جازان",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

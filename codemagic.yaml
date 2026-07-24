@@ -1,0 +1,31 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      java: 17
+      groups:
+        - android_credentials
+    scripts:
+      - name: Set Android SDK
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+      - name: Build Android APK
+        script: |
+          chmod +x gradlew || true
+          gradle assembleDebug
+      - name: Build Android Release AAB
+        script: |
+          gradle assembleRelease
+    artifacts:
+      - app/build/outputs/**/*.apk
+      - app/build/outputs/**/*.aab
+      - app/build/outputs/**/mapping.txt
+    publishing:
+      email:
+        recipients:
+          - talmbktsar@gmail.com
+        notify:
+          success: true
+          failure: true
