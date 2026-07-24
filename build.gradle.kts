@@ -7,3 +7,8 @@ plugins {
   alias(libs.plugins.secrets) apply false
   alias(libs.plugins.google.services) apply false
 }
+
+tasks.wrapper {
+  gradleVersion = "9.3.1"
+  distributionType = Wrapper.DistributionType.BIN
+}
